@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+/*CSS home page*/
+.home{
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-img{
+  display: flex;
+ margin-right: 100px;
+  margin-top: 80px;
+  background-color: yellow;
+  box-sizing: border-box;
+  justify-content: center;
+  border-radius: 50%;
+  width: 900px ;
+  height:600px;
+  padding-top: 75px;
+}
+.img_cat{
+  padding-top: 127px;
+}
+/*CSS ABOUT PAGE */
+.about{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  align-items: center;
+  overflow: hidden;
+
+}
+.service{
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  align-items: center;
+}
+/*css cards*/
+
+.container_card {
+ 
+  background-color:hotpink;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);  
+  padding: 38px;  
+  filter: drop-shadow(0 30px 10px rgba(0,0,0,0.125));
+  align-items: center;
+  text-align: center;
+  margin: 20px;
+  width: 300px;
+  height: 600px;
+  margin-bottom: 20px; 
+
+}
+.card_list{
+display: flex;
+justify-content: space-around;
+flex-wrap: wrap;
+margin-top: 50px;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+
+}
+
+.banner-image {
+  background-position: center;
+  background-size: cover;
+  height: 300px;
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255, 0.255)
+}
+
+.banner-image h1{
+  font-family: 'Righteous', sans-serif;
+  color: rgba(255,255,255,0.98);
+  text-transform: uppercase;
+  font-size: 2.4rem;
+}
+
+.banner-image p {
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+  font-size: 0.8rem;
+  line-height: 150%;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.button-wrapper{
+  margin-top: -50px;
+  display: flex;
+}
+
+.btn {
+  border: none;
+  padding: 12px 24px;
+  border-radius: 24px;
+  font-size: 12px;
+  font-size: 0.8rem;  
+  letter-spacing: 2px;  
+  cursor: pointer;
+}
+
+.btn + .btn {
+  margin-left: 10px;
+}
+
+.outline {
+  background: transparent;
+  color: rgba(0, 212, 255, 0.9);
+  border: 1px solid rgba(0, 212, 255, 0.6);
+  transition: all .3s ease;
+  
+}
+
+.outline:hover{
+  transform: scale(1.125);
+  color: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.9);
+  transition: all .3s ease;  
+}
+
+.fill {
+  background: rgba(0, 212, 255, 0.9);
+  color: rgba(255,255,255,0.95);
+  filter: drop-shadow(0);
+  font-weight: bold;
+  transition: all .3s ease; 
+}
+
+.fill:hover{
+  transform: scale(1.125);  
+  border-color: rgba(255, 255, 255, 0.9);
+  filter: drop-shadow(0 10px 5px rgba(0,0,0,0.125));
+  transition: all .3s ease;    
+}
+
+/* css search*/
+.d-flex{
+  margin-top: 20px;
+  width:50%;
+  margin-left: 350px;
+}
