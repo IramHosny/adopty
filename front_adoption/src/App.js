@@ -8,8 +8,9 @@ import Contact from './components/Contact';
 import ChienList from './components/ChienList';
 import ChatList from './components/ChatList';
 import Forum from './components/Forum';
-import Veterinarian from './components/Veterinarian';
 import { useState } from 'react';
+import{dataVeterinarian} from './DB/dataVeterinarian';
+import VeteList from './components/VeteList';
 
 function App() {
   const[cats, setcats] = useState([{
@@ -41,6 +42,7 @@ description:"Ce petit chiot Chihuahua nommé Coco est une véritable boule d'én
 },
 ])
 const [text, settext] = useState("");
+
   return (
     <div className="App"  style={{ backgroundColor:'beige'}}>
    <Navbarr/>
@@ -50,7 +52,7 @@ const [text, settext] = useState("");
         <Route path="/cats" element={ <ChatList cats ={cats}  text = {text}  settext= {settext}/> } />
         <Route path="/dogs" element={ <ChienList dogs={dogs}  text = {text} settext= {settext}/> } />
         <Route path="/forum" element={ <Forum/> } />
-        <Route path="/veterinarian" element={ <Veterinarian/> } />
+        <Route path="/veterinarian" element={ <VeteList dataVeterinarian={dataVeterinarian}  text = {text} settext= {settext}/> } />
         <Route path="/contact" element={ <Contact/> } />
       </Routes>
     </div>

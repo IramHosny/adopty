@@ -1,0 +1,49 @@
+* {
+	box-sizing: border-box;
+}
+
+
+
+image {
+	display: block;
+	width: 100%;
+}
+
+h2 {
+	margin: 0;
+	font-size: 1.4rem;
+}
+
+.cta {
+	--shadowColor: 187 60% 40%;
+	display: flex;
+	background: hsl(187 70% 85%);
+	max-width: 50rem;
+	box-shadow: 0.65rem 0.65rem 0 hsl(var(--shadowColor) / 1);
+	border-radius: 0.8rem;
+	overflow: hidden;
+	border: 0.5rem solid;
+    margin: 20px;
+    width: 600px;
+    height: 320px;
+}
+
+.cta .image {
+    background-size: cover;
+    height: 300px;
+}
+
+.cta__text-column {
+	padding: min(2rem, 5vw) min(2rem, 5vw) min(2.5rem, 5vw);
+	flex: 1 0 50%;
+}
+
+.cta__text-column > * + * {
+	margin: min(1.5rem, 2.5vw) 0 0 0;
+}
+.Vete_list{
+display: flex;
+justify-content: space-around;
+flex-wrap: wrap;
+margin-top: 50px;
+}
