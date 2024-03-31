@@ -1,18 +1,30 @@
 import React from 'react';
-import './Vete.css';
+import './CSS/Vete.css';
+import './CSS/Cards_vete.css';
 const VeteCard = ({el}) => {
   return (
     <div>
-        <article class="cta">
-        <div > <img style={{maxwidth:'80px',minwidth:'80px', maxHeight:'200px',minHeight:'200px'}} className="image" src={el.image} alt="veterinarian"/>
-         <div style={{marginTop:'15px',  marginLeft:'40px',width:'300px'}}><p style={{fontSize: '1.4rem'}} >{el.adresse}</p>
-        <p style={{fontSize: '1.4rem'}}>{el.numéro}</p></div></div>
-	<div class="cta__text-column">
-		<h2>{el.name}</h2>
-		<p style={{maxwidth:'100px',minwidth:'100px', maxHeight:'200px',minHeight:'200px',marginLeft:'-20px'}}>{el.description}</p>
-		
-	</div>
-</article>
+  
+  <div className="colombia_card">
+  <img
+    className="colombia_card__background"
+    src={el.image}
+    alt=" "
+     style={{maxWidth:'1920',minWidth:'1920',
+    maxHeightheight:'2193', minHeighth:'2193'}}
+  />
+  <div className="colombia_card__content | flow">
+    <div className="colombia_card__content--container | flow">
+      <h2 className="colombia_card__title">{el.name}</h2>
+      <p className="colombia_card__description">
+        {el.description}
+        <h3>{el.adresse}</h3>
+        <h4>{el.numéro}</h4>
+      </p>
+    </div>
+  </div>
+</div>
+
     </div>
     
   );

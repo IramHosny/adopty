@@ -2,57 +2,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
 
 /*CSS home page*/
-.home{
-  display: flex;
-  justify-content: space-between;
+.body{
+  margin:auto;
 }
 
-.container-img{
-  display: flex;
- margin-right: 100px;
-  margin-top: 80px;
-  box-sizing: border-box;
-  justify-content: center;
-  border-radius: 50%;
-  width: 900px ;
-  height:600px;
-  padding-top: 75px;
-}
-.img_cat{
-  padding-top: 127px;
-}
-/*CSS ABOUT PAGE */
-.about{
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-  align-items: center;
-  overflow: hidden;
 
-}
-.service{
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-  align-items: center;
-}
+
+
+
 /*css cards*/
 
-.container_card {
- 
-  background-color:hotpink;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.125);  
-  padding: 38px;  
-  filter: drop-shadow(0 30px 10px rgba(0,0,0,0.125));
-  align-items: center;
-  text-align: center;
-  margin: 20px;
-  width: 300px;
-  height: 600px;
-  margin-bottom: 20px; 
 
-}
 .card_list{
 display: flex;
 justify-content: space-around;
