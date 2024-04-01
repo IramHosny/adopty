@@ -14,7 +14,7 @@ function ChienList({dogs,text,settext}) {
               aria-label="Search"
               onChange={(e) => settext(e.target.value) }
             />
-            <Button className='btn' variant="outline-success" style={{backgroundColor:'#f72585' , border:'none', color:'white'}} >Search</Button>
+            <Button className='btn' variant="outline-success" style={{backgroundColor:'#ff5bbd' , border:'none', color:'white'}} >Search</Button>
           </Form>
         <div className='card_list'>
         {dogs.filter((el)=>el.name.toLowerCase().includes(text.toLowerCase())).map((el)=> <ChienCard el={el} />)}  

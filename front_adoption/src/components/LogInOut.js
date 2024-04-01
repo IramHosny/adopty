@@ -44,7 +44,7 @@ function LogInOut() {
   return (
     //registration
     <div className='log'>
-        <h2 className='h2' style={{marginTop:'10%',color:'#9e4229',fontStyle:'italic',fontFamily:'cursive',fontWeight:'bold',fontSize:'40px'}}>Welcome to Adopty</h2>
+        <h2 className='h2' style={{marginTop:'10%',color:'#ff5bbd',fontStyle:'italic',fontFamily:'cursive',fontWeight:'bold',fontSize:'40px'}}>Welcome to Adopty</h2>
         <div className="container" id="container" style={{marginTop:'5%'}}>
           <div className="form-container sign-up-container">
             <form className='form' onSubmit={(e)=>e.preventDefault()}>

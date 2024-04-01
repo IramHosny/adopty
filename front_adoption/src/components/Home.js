@@ -34,7 +34,7 @@ function Home() {
 </div>
     </div>
     </Fade>
-    <h1 style={{ marginTop:'10%', textAlign:'center' ,fontStyle:'italic',fontFamily:'cursive',fontWeight:'bold'}}> Pets Available </h1>
+    <h1 style={{color:'#ff5bbd' , marginTop:'10%', textAlign:'center' ,fontStyle:'italic',fontFamily:'cursive',fontWeight:'bold'}}> Pets Available </h1>
      <Fade> <div className="container" style={{marginTop:'5%'}}>
    
   <div>
@@ -64,7 +64,7 @@ function Home() {
 </div>
 </Fade>
     <div classname='home_4' style={{marginTop:'10%'}}>
-    <h1 style={{ marginTop:'70px', textAlign:'center' ,fontStyle:'italic',fontFamily:'cursive',fontWeight:'bold'}}> Our missions <h4 style={{color:'#9e4229',fontWeight:'bold'}}> for them !</h4> </h1>
+    <h1 style={{ marginTop:'70px', textAlign:'center' ,fontStyle:'italic',fontFamily:'cursive',fontWeight:'bold'}}> Our missions <h4 style={{color:'#ff5bbd',fontWeight:'bold'}}> for them !</h4> </h1>
   <Fade> <div className='cards_mission' style={{display:'flex',justifyContent:'space-around',flexWrap:'nowrap',marginTop:'2%'}}>
     <Card style={{ width: '18rem' }}>
     <svg 
@@ -72,7 +72,7 @@ function Home() {
     height="40" 
     viewBox="0 0 16 16" 
     className="bi bi-circle-fill" 
-    fill="#9e4229" 
+    fill="#ff5bbd" 
     xmlns="http://www.w3.org/2000/svg" 
     style={{ position: 'absolute', top:-30, left: 0 }}
   >
@@ -80,7 +80,7 @@ function Home() {
     <text x="50%" y="50%" textAnchor="middle" fill="black" style={{ fontFamily: 'cursive', fontWeight: 'bold', fontStyle: 'italic',fontSize:'10px' }}>1</text>
   </svg>
       <Card.Body>
-        <Card.Title style={{color:'#9e4229',fontStyle:'italic',fontFamily:'cursive',fontWeight:'bold',fontSize:'20px'}}>Fostering Pet Wellness through Veterinary Access</Card.Title>
+        <Card.Title style={{color:'#ff5bbd',fontStyle:'italic',fontFamily:'cursive',fontWeight:'bold',fontSize:'20px'}}>Fostering Pet Wellness through Veterinary Access</Card.Title>
         <Card.Text style={{fontStyle:'italic',fontFamily:'cursive',fontSize:'17px',fontWeight:'bold'}}>
         In the event of an emergency or for general inquiries, we strive to connect pet owners with reliable veterinarians who can offer assistance and guidance. By promoting responsible pet ownership and fostering strong bonds between pets and their caregivers, 
         we aim to create a happier and healthier world for all animals.
@@ -94,7 +94,7 @@ function Home() {
     height="40" 
     viewBox="0 0 16 16" 
     className="bi bi-circle-fill" 
-    fill="#9e4229" 
+    fill="#ff5bbd" 
     xmlns="http://www.w3.org/2000/svg" 
     style={{ position: 'absolute', top:-30, left: 0 }}
   >
@@ -102,7 +102,7 @@ function Home() {
     <text x="50%" y="50%" textAnchor="middle" fill="black" style={{ fontFamily: 'cursive', fontWeight: 'bold', fontStyle: 'italic',fontSize:'10px' }}>2</text>
   </svg>
       <Card.Body>
-        <Card.Title style={{color:'#9e4229',fontStyle:'italic',fontFamily:'cursive',fontWeight:'bold',fontSize:'20px'}}>Reducing Euthanasia Rates</Card.Title>
+        <Card.Title style={{color:'#ff5bbd',fontStyle:'italic',fontFamily:'cursive',fontWeight:'bold',fontSize:'20px'}}>Reducing Euthanasia Rates</Card.Title>
         <Card.Text style={{fontStyle:'italic',fontFamily:'cursive',fontSize:'17px',fontWeight:'bold'}}>
         When you adopt an animal through Paaw, you save two lives. 
         The life of the animal you adopt and the life of the animal that won't be euthanized because 
@@ -117,7 +117,7 @@ function Home() {
     height="40" 
     viewBox="0 0 16 16" 
     className="bi bi-circle-fill" 
-    fill="#9e4229" 
+    fill="#ff5bbd" 
     xmlns="http://www.w3.org/2000/svg" 
     style={{ position: 'absolute', top:-30, left: 0 }}
   >
@@ -125,7 +125,7 @@ function Home() {
     <text x="50%" y="50%" textAnchor="middle" fill="black" style={{ fontFamily: 'cursive', fontWeight: 'bold', fontStyle: 'italic',fontSize:'10px' }}>3</text>
   </svg>
       <Card.Body>
-        <Card.Title style={{color:'#9e4229',fontStyle:'italic',fontFamily:'cursive',fontWeight:'bold',fontSize:'20px'}}>Find Your Future Best Friend</Card.Title>
+        <Card.Title style={{color:'#ff5bbd',fontStyle:'italic',fontFamily:'cursive',fontWeight:'bold',fontSize:'20px'}}>Find Your Future Best Friend</Card.Title>
         <Card.Text style={{fontStyle:'italic',fontFamily:'cursive',fontSize:'17px',fontWeight:'bold'}}>
         We have the perfect remedy for combating loneliness or bringing some cheer into your life! 
         An animal is simply a bundle of fur and love that will fill you with happiness. 

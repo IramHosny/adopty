@@ -1,7 +1,13 @@
 /* Colors */
 :root {
-    --color-primary-white: rgb(8, 8, 8);
-  }
+  /* Colors */
+  --brand-color: hsl(320, 89%, 52%);
+  --black: hsl(0, 0%, 0%);
+  --white: hsl(0, 0%, 100%);
+  /* Fonts */
+  --font-title: "Montserrat", sans-serif;
+  --font-text: "Lato", sans-serif;
+}
   
   main {
     display: flex;
@@ -20,8 +26,8 @@
     cursor: pointer;
     position: relative;
     color: var(--color-primary-white);
-    box-shadow: 0 10px 30px 5px rgba(0, 0, 0, 0.2);
-  }
+    box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
+    }
   
   .card_pets img {
     position: absolute;
@@ -32,6 +38,8 @@
     left: 0;
     opacity: 0.9;
     transition: opacity .2s ease-out;
+    
+    
   }
   
   .card_pets h2 {
@@ -39,7 +47,8 @@
     inset: auto auto 30px 30px;
     margin: 0;
     transition: inset .3s .3s ease-out;
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: var(--font-title);
+    color: var(--white);
     font-weight: normal;
     text-transform: uppercase;
   }
@@ -50,6 +59,8 @@
     opacity: 0;
     max-width: 80%;
     transition: opacity .3s ease-out;
+    color: var(--white);
+    font-family: var(--font-text);
   }
   
   .card_pets p {
@@ -59,7 +70,7 @@
   
   .card_pets a {
     inset: auto auto 40px 30px;
-    color: inherit;
+    color: var(--white);
     text-decoration: none;
   }
   
@@ -67,6 +78,20 @@
     inset: auto auto 220px 30px;
     transition: inset .3s ease-out;
   }
+  .card_pets h2::after {
+    inset: auto auto 220px 30px;
+    transition: inset .3s ease-out;
+    content: "";
+      position: absolute;
+      height: 0.3125rem;
+      width: calc(100% + 1.25rem);
+      bottom: calc((1.25rem - 0.5rem) * -1);
+      left: -1.25rem;
+      background-color: var(--brand-color);
+      
+    }
+  
+  
   
   .card_pets:hover p,
   .card_pets:hover a {
@@ -82,4 +107,30 @@
   .material-symbols-outlined {
     vertical-align: middle;
   }
+  .card-content{
+    --flow-space: 0.9375rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-self: flex-end;
+    height: 55%;
+    padding: 12% 1.25rem 1.875rem;
+    background: linear-gradient(
+    180deg,
+    hsla(0, 0%, 0%, 0) 0%,
+    hsla(0, 0%, 0%, 0.3) 10%,
+    hsl(0, 0%, 0%) 100%
+  );
+  }
+  @media (any-hover: hover) and (any-pointer: fine) {
+    .card-content {
+    transform: translateY(82%);
+    transition: transform 500ms ease-out;
+    transition-delay: 500ms;
+  }
+  .card_pets img {
+    transition: transform 500ms ease-in;
+  }
+}
+ 
   

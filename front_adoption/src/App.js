@@ -56,7 +56,7 @@ const[dogs, setdogs] = useState([{
 name:"Max",
 dog_url:"https://www.santevet.be/uploads/images/fr_BE/races/berger%20allemand.jpg",
 description:"Le Berger Allemand nommé Max est un magnifique spécimen de la race, âgé de trois ans. Mesurant fièrement 60 centimètres au garrot et pesant environ 35 kilogrammes"
-,Race:"-Race:Berger Allemand",
+,Race:"-Race:Berger",
 Sexe:"-Sexe:Mâle",
 Àge:"-Àge:3 ans",
 Santé:"-Santé:Bonne",

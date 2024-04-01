@@ -34,14 +34,14 @@ const ChienCard = ({el}) => {
           src={el.dog_url}
           alt=""
         />
-        <div className="card-content">
-          <h2>{el.name}</h2>
+        <div className="card-content" style={{backgroundImage: 'linear-gradient(180deg, hsla(0, 0%, 0%, 0) 0%, hsla(0, 0%, 0%, 0.3) 10%, hsl(0, 0%, 0%) 100%)'}} >
+          <h2 style={{fontWeight:'bold'}}>{el.name}</h2>
           <p style={{fontStyle:'italic',fontFamily:'cursive',fontSize:'50px',fontWeight:'bold'}}> 
           <h4>{el.Race}</h4>
           <h4>{el.Sexe}</h4>
           <h4>{el.Àge}</h4>
           </p>
-          <a href="#" className="button">
+          <a style={{fontWeight:'bold',color:'white'}} href="#" className="button">
             Find out more
             <span className="material-symbols-outlined"> more </span>
           </a>

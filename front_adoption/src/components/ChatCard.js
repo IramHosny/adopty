@@ -36,7 +36,8 @@ const ChatCard = ({el}) => {
           alt=""
         />
         <div className="card-content">
-        <h2>{el.name}</h2>
+          <div className='card-content-pets'>
+        <h2 className='card-title' style={{fontWeight:'bold'}}>{el.name}</h2>
          <p style={{fontStyle:'italic',fontFamily:'cursive',fontSize:'50px',fontWeight:'bold'}}> 
           <h4>{el.Race}</h4>
           <h4>{el.Sexe}</h4>
@@ -47,6 +48,7 @@ const ChatCard = ({el}) => {
             Find out more
             <span className="material-symbols-outlined"> more </span>
           </a>
+          </div>
         </div>
       </div>
     

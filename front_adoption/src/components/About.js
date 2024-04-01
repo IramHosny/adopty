@@ -11,7 +11,7 @@ function About() {
       <div className="col-md-5 order-2 order-md-1">
         <div className="mt-5 mt-md-0">
           <span className="text-muted" style={{color:'black',fontStyle:'italic',fontFamily:'cursive',fontSize:'20px',fontWeight:'bold'}}>Our Story</span>
-          <h2 className="display-5 fw-bold" style={{color:'#9e4229',fontStyle:'italic',fontFamily:'cursive',fontSize:'50px',fontWeight:'bold'}}>About Us</h2>
+          <h2 className="display-5 fw-bold" style={{color:'#ff5bbd',fontStyle:'italic',fontFamily:'cursive',fontSize:'50px',fontWeight:'bold'}}>About Us</h2>
           <Fade><p className="lead" style={{fontStyle:'italic',fontFamily:'cursive',fontSize:'20px',fontWeight:'bold',marginTop:'5%'}}>
           Welcome to Adopty, where hearts meet paws! At Adopty, 
           we're passionate about connecting compassionate individuals with furry companions in need 
@@ -19,7 +19,7 @@ function About() {
           for both pets and their future families. Whether you're a seasoned pet owner or 
           considering adoption for the first time, Adopty is here to guide you every step of the way. 
           </p>
-          <p className="lead" style={{color:'#9e4229',fontStyle:'italic',fontFamily:'cursive',fontSize:'18px',fontWeight:'bold'}}>
+          <p className="lead" style={{color:'#ff5bbd',fontStyle:'italic',fontFamily:'cursive',fontSize:'18px',fontWeight:'bold'}}>
           Together, let's embark on a journey of companionship, joy, and endless tail wags. 
           Join us in making a difference one adoption at a time!.
           </p>

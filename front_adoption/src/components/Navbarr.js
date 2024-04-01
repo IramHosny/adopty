@@ -19,16 +19,16 @@ function Navbarr() {
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="me-auto">
-          <Nav.Link href="#features"> <Link style={{textDecoration:'none' , color:'#9e4229',fontStyle:'italic',fontFamily:'cursive',fontSize:'20px',fontWeight:'bold'}} to="/about"> About us </Link></Nav.Link>
+          <Nav.Link href="#features"> <Link style={{textDecoration:'none' , color:'#ff5bbd',fontStyle:'italic',fontFamily:'cursive',fontSize:'20px',fontWeight:'bold'}} to="/about"> About us </Link></Nav.Link>
           <NavDropdown title="Pets" id="collapsible-nav-dropdown" style={{fontStyle:'italic',fontFamily:'cursive',fontWeight:'bold',fontSize:'20px'}}>
             <NavDropdown.Item href="#action/3.1"> <Link style={{textDecoration:'none' , color:'black',fontStyle:'italic',fontFamily:'cursive',fontSize:'20px'}} to="/cats"> cats</Link></NavDropdown.Item>
             <NavDropdown.Item href="#action/3.2"> <Link style={{textDecoration:'none' , color:'black',fontStyle:'italic',fontFamily:'cursive',fontSize:'20px'}} to="/dogs"> dogs </Link>
             </NavDropdown.Item>
             <NavDropdown.Divider />
           </NavDropdown>
-          <Nav.Link href="#pricing" > <Link style={{textDecoration:'none' , color:'#9e4229',fontStyle:'italic',fontFamily:'cursive',fontWeight:'bold',fontSize:'20px'}} to="/veterinarian"> Veterinarians</Link> </Nav.Link>
+          <Nav.Link href="#pricing" > <Link style={{textDecoration:'none' , color:'#ff5bbd',fontStyle:'italic',fontFamily:'cursive',fontWeight:'bold',fontSize:'20px'}} to="/veterinarian"> Veterinarians</Link> </Nav.Link>
           <Nav.Link href="#pricing" ><Link style={{textDecoration:'none' , color:'black',fontStyle:'italic',fontFamily:'cursive',fontWeight:'bold',fontSize:'20px'}} to="/forum"> Forum </Link>  </Nav.Link>
-          <Nav.Link href="#pricing" > <Link style={{textDecoration:'none' , color:'#9e4229',fontStyle:'italic',fontFamily:'cursive',fontWeight:'bold',fontSize:'20px'}} to="/contact"> Contact </Link> </Nav.Link>
+          <Nav.Link href="#pricing" > <Link style={{textDecoration:'none' , color:'#ff5bbd',fontStyle:'italic',fontFamily:'cursive',fontWeight:'bold',fontSize:'20px'}} to="/contact"> Contact </Link> </Nav.Link>
         </Nav>
         <Nav>
         <ul className="nav">
@@ -36,7 +36,7 @@ function Navbarr() {
       <Link to={'/profile'}>
         <li>
         <svg width="40" height="40" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="25" cy="25" r="25" fill="#9e4229" />
+  <circle cx="25" cy="25" r="25" fill="#ff5bbd"  />
   <text x="50%" y="50%" text-anchor="middle" alignment-baseline="central" fill="white" font-family="Arial, sans-serif" font-size="20">{user?.name.charAt(0).toUpperCase()}</text>
 </svg>
 

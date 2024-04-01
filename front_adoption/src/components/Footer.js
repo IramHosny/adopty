@@ -43,7 +43,7 @@ function Footer() {
           <div className="col-lg-4 col-md-6 col-sm-12" style= {{marginLeft:'30%'}}  >
             <div className="widget widget_contact">
               <div className="widget_title">
-                <h4 style={{color:'#9e4229',fontStyle:'italic',fontFamily:'cursive'}}>Contact Us</h4>
+                <h4 style={{color:'#ff5bbd',fontStyle:'italic',fontFamily:'cursive'}}>Contact Us</h4>
               </div>
               <div className="contact_info">
                 <div className="single_info">
