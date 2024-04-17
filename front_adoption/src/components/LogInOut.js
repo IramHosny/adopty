@@ -25,7 +25,7 @@ function LogInOut() {
     password :"" , 
   })
 
-
+ 
   //js de la page
     useEffect(() => {
         const signUpButton = document.getElementById('signUp');

@@ -3,7 +3,7 @@ import './CSS/Footer.css'
 function Footer() {
   return (
     <div className='footer' style={{marginTop:'0',backgroundColor:'rgb(248 249 250)'}}>
-        
+       <img src='./logoadopty.png'  alt="" style={{width:'300px',height:'250px'}}/> 
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
@@ -20,7 +20,7 @@ function Footer() {
       }}
     >
       <div className="container_footer" style={{height:'250px'}}>
-        <div className="row" style={{marginTop:'-50px'}}>
+        <div className="row" style={{marginTop:'-300px'}}>
           <div className="col-lg-4 col-md-6 col-12">
             <div className="widget widegt_about">
               <div className="widget_title">
@@ -30,15 +30,18 @@ function Footer() {
                   alt=""
                 />
               </div>
-              <p style={{width:'100%',color:'black',fontStyle:'italic',fontFamily:'cursive',fontSize:'15px',fontWeight:'bold',marginLeft:'20%'}}>
+              <div className='para_logo_footer'>
+              
+              <p className='para_footer' style={{width:'100%',color:'black',fontStyle:'italic',fontFamily:'cursive',fontSize:'15px',fontWeight:'bold',marginLeft:'20%'}}>
               At Adopty, our mission is simple: to connect loving homes with furry companions in need. 
               Through our platform, we strive to facilitate the adoption process for both cats and dogs, 
               ensuring that every pet finds a caring family to call their own. 
               Join us in making a difference in the lives of these wonderful animals by adopting from Adopty today
               </p>
-              
+              </div>
             </div>
           </div>
+          
           
           <div className="col-lg-4 col-md-6 col-sm-12" style= {{marginLeft:'30%'}}  >
             <div className="widget widget_contact">
@@ -85,6 +88,7 @@ function Footer() {
               </div>
             </div>
           </div>
+          
         </div>
       </div>
     </div>

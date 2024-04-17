@@ -16,6 +16,8 @@
     align-items: center;
     padding: 50px;
     font-family: 'Roboto', sans-serif;
+    background-color: #ff5bbd;
+    border-radius: 10px;
   }
   
   .card_pets {
@@ -121,6 +123,7 @@
     hsla(0, 0%, 0%, 0.3) 10%,
     hsl(0, 0%, 0%) 100%
   );
+  
   }
   @media (any-hover: hover) and (any-pointer: fine) {
     .card-content {

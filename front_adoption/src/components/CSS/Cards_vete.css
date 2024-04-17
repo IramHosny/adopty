@@ -62,11 +62,13 @@ body {
   overflow: hidden;
   border-radius: 0.625rem;
   box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
+ 
 }
 
 .colombia_card > * {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
+  
 }
 
 .colombia_card__background {
@@ -89,6 +91,8 @@ body {
     hsla(0, 0%, 0%, 0.3) 10%,
     hsl(0, 0%, 0%) 100%
   );
+  background-color: #ff5bbd;
+  border-radius: 10px;
 }
 
 .colombia_card__content--container {

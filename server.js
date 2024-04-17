@@ -10,6 +10,9 @@ db_connect();
 
 //routes
 app.use("/user", require("./routes/user"));
+app.use("/cat", require("./routes/cat"));
+app.use("/dog", require("./routes/dog"));
+app.use("/veterinarian", require("./routes/veterinarian"));
 
 //server
 const PORT = process.env.PORT ;

@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ChienCard from './ChienCard'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { useSelector } from 'react-redux'
 
-function ChienList({dogs,text,settext}) {
+function ChienList({ping,setping}) {
+  const dogs= useSelector((state)=>state.dog?.doglist);
+  const [text, settext] = useState("")
   return (
     <div>
-        <Form className="d-flex">
+        <center> <Form className="find"  style={{display:'flex',marginTop:'5%'}}>
             <Form.Control
               type="search"
               placeholder="Search"
@@ -15,9 +18,9 @@ function ChienList({dogs,text,settext}) {
               onChange={(e) => settext(e.target.value) }
             />
             <Button className='btn' variant="outline-success" style={{backgroundColor:'#ff5bbd' , border:'none', color:'white'}} >Search</Button>
-          </Form>
+          </Form></center>
         <div className='card_list'>
-        {dogs.filter((el)=>el.name.toLowerCase().includes(text.toLowerCase())).map((el)=> <ChienCard el={el} />)}  
+        {dogs?.filter((el)=>el?.name.toLowerCase().includes(text.toLowerCase())).map((el)=> <ChienCard dog={el} />)}  
      </div>
     </div>
   )

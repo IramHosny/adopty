@@ -2,7 +2,7 @@ import React from 'react';
 import './CSS/Cards.css';
 
 
-const ChatCard = ({el}) => {
+const ChatCard = ({cat}) => {
   return (
     <div>
     <>
@@ -28,20 +28,21 @@ const ChatCard = ({el}) => {
     rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
   />
+
   <main>
     
-      <div className="card_pets" >
+      <div className="card_pets">
         <img
-          src={el.cat_url}
+          src={cat?.image}
           alt=""
         />
         <div className="card-content">
           <div className='card-content-pets'>
-        <h2 className='card-title' style={{fontWeight:'bold'}}>{el.name}</h2>
+        <h2 className='card-title' style={{fontWeight:'bold'}}>{cat?.name}</h2>
          <p style={{fontStyle:'italic',fontFamily:'cursive',fontSize:'50px',fontWeight:'bold'}}> 
-          <h4>{el.Race}</h4>
-          <h4>{el.Sexe}</h4>
-          <h4>{el.Àge}</h4>
+          <h4>{cat?.breed}</h4>
+          <h4>{cat?.sexe}</h4>
+          <h4>{cat?.age}</h4>
           </p>
 
           <a href="#" className="button">

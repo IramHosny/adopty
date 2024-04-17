@@ -17,6 +17,13 @@ import Profile from './components/Profile';
 import { useDispatch } from 'react-redux';
 import { userCurrent } from './redux/userSlice';
 import PrivateRoute from './routes/PrivateRoute';
+import Dashboard from './components/Dashboard';
+import CatListadmin from './components/CatListadmin';
+import DogListadmin from './components/DogListadmin';
+import VeterinarianListadmin from './components/VeterinarianListadmin';
+import  {getcat} from './redux/catSlice';
+import { getveterinarian } from './redux/veterinarianSlice';
+import { getdog } from './redux/dogSlice';
 
 function App() {
   const dispatch= useDispatch();
@@ -24,8 +31,11 @@ function App() {
   const [ping, setping] = useState(false);
   useEffect(() => {
     dispatch(userCurrent());
-    
+    dispatch(getcat());
+    dispatch(getdog());
+    dispatch(getveterinarian());   
   }, [ping])
+
   const[cats, setcats] = useState([{
   name:"TIAGO",
   cat_url:"https://www.medoretcie.com/-/media/Project/BotanicSDS/Medor/Articles/Images/2023_09_article_chat_siamois/2023_09_Banniere_chat_siamois.png?w=1920&hash=D8B7AFBD20003AB91839BA392D42D9A96BC97907",
@@ -83,17 +93,22 @@ const [text, settext] = useState("");
   return (
     <div className="App">
    <Navbarr/>
-   <Routes>
+  <Routes>
         <Route path="/" element={ <Home/> } />
         <Route path="/about" element={ <About/> } />
-        <Route path="/cats" element={ <ChatList cats ={cats}  text = {text}  settext= {settext}/> } />
-        <Route path="/dogs" element={ <ChienList dogs={dogs}  text = {text} settext= {settext}/> } />
+        <Route path="/cats" element={ <ChatList   ping = {ping} setping = {setping}/> } />
+        <Route path="/dogs" element={ <ChienList  ping = {ping} setping = {setping}/> } />
         <Route path="/forum" element={ <Forum/> } />
-        <Route path="/veterinarian" element={ <VeteList dataVeterinarian={dataVeterinarian}  text = {text} settext= {settext}/> } />
+        <Route path="/veterinarian" element={ <VeteList  ping = {ping} setping = {setping}/> } />
         <Route path="/contact" element={ <Contact/> } />
         <Route path="/login" element={ <LogInOut/> } />
         <Route element={<PrivateRoute/>}>
         <Route path="/profile" element={<Profile ping = {ping} setping = {setping}/>}/>
+        <Route path="/admin" element={<Dashboard/>} ping = {ping} setping = {setping}/>
+        <Route path="/admin/cat" element={<CatListadmin/>} ping = {ping} setping = {setping} />
+        <Route path="/admin/dog" element={<DogListadmin/>} ping = {ping} setping = {setping}/>
+        <Route path='/admin/veterinarian' element={<VeterinarianListadmin/>} ping = {ping} setping = {setping}/>
+        
         </Route>
         </Routes>
         <Footer/>

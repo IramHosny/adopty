@@ -99,8 +99,6 @@ margin-top: 50px;
 }
 
 /* css search*/
-.d-flex{
-  margin-top: 20px;
-  width:50%;
-  margin-left: 350px;
+.find{
+width:50%;
 }

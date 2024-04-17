@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import VeteCard from './VeteCard';
+import { useSelector } from 'react-redux'
 
 
-function VeteList({dataVeterinarian,text,settext}) {
+function VeteList({ping,setping}) {
+  const veterinarians= useSelector((state)=>state.veterinarian?.veterinarianlist);
+  const [text, settext] = useState("")
   return (
     <div >
-    <Form className="d-flex">
+    <center> <Form className="find" style={{display:'flex',marginTop:'5%'}}>
        <Form.Control
          type="search"
          placeholder="Search"
@@ -15,10 +18,10 @@ function VeteList({dataVeterinarian,text,settext}) {
          aria-label="Search"
          onChange={(e) => settext(e.target.value) }
        />
-       <Button className='btn' variant="outline-success" style={{backgroundColor:'#ff5bbd' , border:'none', color:'white'}} >Search</Button>
-     </Form>
+       <Button className='btn_card' variant="outline-success" style={{backgroundColor:'#ff5bbd' , border:'none', color:'white'}} >Search</Button>
+     </Form></center>
    <div className='Vete_list'>
-   {dataVeterinarian.filter((el)=>el.adresse.toLowerCase().includes(text.toLowerCase())).map((el)=> <VeteCard el={el} />)}  
+   {veterinarians?.filter((el)=>el?.adress.toLowerCase().includes(text.toLowerCase())).map((el)=> <VeteCard veterinarian={el} />)}  
 </div>
 </div>
   )

@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ChatCard from './ChatCard'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { useSelector } from 'react-redux'
 
-function ChatList({cats,text,settext}) {
+function ChatList({ping,setping}) {
+  const cats= useSelector((state)=>state.cat?.catlist);
+  const [text, settext] = useState("")
   return (
-    <div >
-         <Form className="d-flex">
+    <div>
+        <center><Form className="find"  style={{display:'flex',marginTop:'5%'}}>
             <Form.Control
               type="search"
               placeholder="Search"
@@ -15,9 +18,9 @@ function ChatList({cats,text,settext}) {
               onChange={(e) => settext(e.target.value) }
             />
             <Button className='btn' variant="outline-success" style={{backgroundColor:'#ff5bbd' , border:'none', color:'white'}} >Search</Button>
-          </Form>
+          </Form></center> 
         <div className='card_list'>
-        {cats.filter((el)=>el.name.toLowerCase().includes(text.toLowerCase())).map((el)=> <ChatCard el={el} />)}  
+        {cats?.filter((el)=>el?.name.toLowerCase().includes(text.toLowerCase())).map((el)=> <ChatCard cat={el} ping={ping} setping={setping}  />)}  
      </div>
     </div>
   )
