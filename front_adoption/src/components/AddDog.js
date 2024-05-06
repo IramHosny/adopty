@@ -15,7 +15,7 @@ function AddDog({ping,setping}) {
     breed: "",
     image:"",
     description: "",
-    Location : "",
+    location : "",
     gender:"",
     age: "",
     images:"",
@@ -25,7 +25,7 @@ const dispatch= useDispatch();
   return (
     <div>
         <>
-    <Button className='btn_add'  variant="primary" onClick={handleShow}>
+    <Button style={{ background: '#ff5bbd', border: 'none', cursor: 'pointer' }} className='btn_add'  variant="primary" onClick={handleShow}>
       Add a dog 
     </Button>
 
@@ -86,7 +86,7 @@ const dispatch= useDispatch();
         <Button variant="secondary" onClick={handleClose}>
           Close
         </Button>
-        <Button variant="primary" onClick={() => {dispatch(adddog(dog)); 
+        <Button style={{ background: '#ff5bbd', border: 'none', cursor: 'pointer' }} variant="primary" onClick={() => {dispatch(adddog(dog)); 
        
              handleClose();
              window.location.reload();}}>

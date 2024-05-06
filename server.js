@@ -13,6 +13,8 @@ app.use("/user", require("./routes/user"));
 app.use("/cat", require("./routes/cat"));
 app.use("/dog", require("./routes/dog"));
 app.use("/veterinarian", require("./routes/veterinarian"));
+app.use("/question", require("./routes/question"));
+app.use("/comment", require("./routes/comment"));
 
 //server
 const PORT = process.env.PORT ;

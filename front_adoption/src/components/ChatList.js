@@ -20,7 +20,7 @@ function ChatList({ping,setping}) {
             <Button className='btn' variant="outline-success" style={{backgroundColor:'#ff5bbd' , border:'none', color:'white'}} >Search</Button>
           </Form></center> 
         <div className='card_list'>
-        {cats?.filter((el)=>el?.name.toLowerCase().includes(text.toLowerCase())).map((el)=> <ChatCard cat={el} ping={ping} setping={setping}  />)}  
+        {cats?.filter((el)=>el?.location.toLowerCase().includes(text.toLowerCase())).map((el)=> <ChatCard cat={el} ping={ping} setping={setping}  />)}  
      </div>
     </div>
   )

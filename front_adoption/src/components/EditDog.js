@@ -25,9 +25,14 @@ const [show, setShow] = useState(false);
 const dispatch= useDispatch();
   return (
     <>
-    <Button className='btn_edit' style={{backgroundColor:'green'}} variant="primary" onClick={handleShow}>
-      edit
-    </Button>
+        <button style={{ background: 'none', border: 'none', cursor: 'pointer' }} onClick={handleShow}>
+                <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-edit-2" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="#000000" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" />
+                    <path d="M16 3l5 5l-14 14l-5 1l1 -5z" />
+                    <line x1="18" y1="7" x2="13.35" y2="11.65" />
+                    <line x1="14" y1="4" x2="4" y2="14" />
+                </svg>
+            </button>
 
     <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
@@ -74,7 +79,7 @@ const dispatch= useDispatch();
         <Button variant="secondary" onClick={handleClose}>
           Close
         </Button>
-        <Button variant="primary" style={{backgroundColor:'green'}} onClick={() => {dispatch(editdog({id:dog?._id,edited})); 
+        <Button variant="primary"style={{ background: '#ff5bbd', border: 'none', cursor: 'pointer' }} onClick={() => {dispatch(editdog({id:dog?._id,edited})); 
      
              handleClose();
              window.location.reload();}}>

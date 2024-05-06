@@ -7,10 +7,9 @@ import { useDispatch } from 'react-redux';
 import { addcat } from '../redux/catSlice';
 function AddCat({ping,setping}) {
     const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-  const [cat, setcat] = useState({
+   const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    const [cat, setcat] = useState({
     name :"" ,
     breed: "",
     image:"",
@@ -25,7 +24,7 @@ const dispatch= useDispatch();
   return (
     <div>
         <>
-    <Button className='btn_add'  onClick={handleShow}>
+    <Button style={{ background: '#ff5bbd', border: 'none', cursor: 'pointer' }} className='btn_add'  onClick={handleShow}>
       Add a cat  
     </Button>
 
@@ -82,7 +81,7 @@ const dispatch= useDispatch();
         <Button variant="secondary" onClick={handleClose}>
           Close
         </Button>
-        <Button variant="primary" onClick={() => {dispatch(addcat(cat)); 
+        <Button style={{ background: '#ff5bbd', border: 'none', cursor: 'pointer' }} variant="primary" onClick={() => {dispatch(addcat(cat)); 
        
              handleClose();
              window.location.reload();}}

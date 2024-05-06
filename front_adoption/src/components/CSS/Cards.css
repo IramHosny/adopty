@@ -18,6 +18,7 @@
     font-family: 'Roboto', sans-serif;
     background-color: #ff5bbd;
     border-radius: 10px;
+    margin-top: 20px;
   }
   
   .card_pets {
@@ -29,6 +30,7 @@
     position: relative;
     color: var(--color-primary-white);
     box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
+   
     }
   
   .card_pets img {

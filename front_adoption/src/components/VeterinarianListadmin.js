@@ -1,75 +1,73 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import AddVeterinarian from './AddVeterinarian';
-import Table from 'react-bootstrap/Table';
-import { deleteveterinarian} from '../redux/veterinarianSlice';
-import { useDispatch } from 'react-redux';
 import EditVeterinarian from './EditVeterinarian';
+import Table from 'react-bootstrap/Table';
+import { deleteveterinarian } from '../redux/veterinarianSlice';
 
-function VetrinarianListadmin({veterinarian,ping,setping,props}) {
-    const user = useSelector((state)=>state.user?.user);
+function VetrinarianListadmin({ ping, setping }) {
+    const user = useSelector(state => state.user?.user);
     const isAuth = localStorage.getItem('token');
-    const veterinarians = useSelector((state)=> state.veterinarian?.veterinarianlist);
-    console.log(veterinarians);
-    const dispatch= useDispatch();
-  return (
-    <>
-    {(isAuth&&user?.role === "admin")? (      
-    <div className='veterinarian_list'  style={{ marginTop:'5%'}} >
-        <div className='add'>
-        <AddVeterinarian ping={ping} setping={setping}/>
-        <div className="container">
-        
-     <Table className='table' striped="columns">
-      <thead>
-        <tr>
-          <th className='cln_table'>Vetrinarian_fullname</th>
-          <th className='cln_table'>Vetrinarian_description</th>
-          <th className='cln_table'>Vetrinarian_image </th>
-          <th className='cln_table'>Vetrinarian_adress</th>
-          <th className='cln_table'>Vetrinarian_phonenumber</th>
-          
-          <th className='cln_table'> <svg className='img_svg'
-      viewBox="0 0 1024 1024"
-      fill="currentColor"
-      height="1em"
-      width="1em"
-      {...props}
-    >
-      <path d="M880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32zm-622.3-84c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9z" />
-    </svg></th>
-    <th className='cln_table'>  <svg className='img_svg'
-      viewBox="0 0 1024 1024"
-      fill="currentColor"
-      height="1em"
-      width="1em"
-      {...props}
-    >
-      <path d="M864 256H736v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zm-200 0H360v-72h304v72z" />
-    </svg></th>
-         
-          
-        </tr>
-      </thead>
+    const veterinarians = useSelector(state => state.veterinarian?.veterinarianlist);
+    const dispatch = useDispatch();
 
-            {veterinarians?.map((el)=> (<tr>
-          <td className='cln_table'>{el?.fullname}</td>
-          <td className='cln_table'>{el?.description}</td>
-          <td className='cln_table'> <img className='img_table' src={el?.image} alt='' ></img></td>
-          <td className='cln_table'>{el?.adress} </td>
-          <td className='cln_table'>{el?.phonenumber}</td>
-          <td className='cln_table'> <EditVeterinarian veterinarian={el} ping={ping} setping={setping}/> </td>
-          <td className='cln_table'> <button className='btn_delete' style={{backgroundColor:'red'}} onClick={()=>{dispatch(deleteveterinarian(el._id)); window.location.reload();}}> X </button></td>
-        </tr>)
-        )}
-        </Table>
-        </div>
-    </div>
-    </div>
-):(<div><center><img src="https://drudesk.com/sites/default/files/2018-02/404-error-page-not-found.jpg" alt="" width={'80%'} height={'auto'} style={{ width:"80%", height:"auto"}} /></center></div>)}
-    </>
-
-  )
+    return (
+        <>
+            {(isAuth && user?.role === "admin") ? (
+                <div className='veterinarian-list-container' style={{ marginTop: '5%' }}>
+                    <div className='add-veterinarian-container'>
+                        <AddVeterinarian ping={ping} setping={setping} />
+                    </div>
+                    <div className="table-container">
+                        <Table striped className='veterinarian-table'>
+                            <thead>
+                                <tr>
+                                    <th> Fullname</th>
+                                    <th>Description</th>
+                                    <th> Image</th>
+                                    <th> Address</th>
+                                    <th> Phone Number</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {veterinarians?.map(veterinarian => (
+                                    <tr key={veterinarian._id}>
+                                        <td>{veterinarian.fullname}</td>
+                                        <td>{veterinarian.description}</td>
+                                        <td>
+                                            <img src={veterinarian.image} style={{ maxWidth: '50px', minWidth: '50px', maxHeight: '50px', minHeight: '50px' }} alt='Veterinarian' className='img_table' />
+                                        </td>
+                                        <td>{veterinarian.adress}</td>
+                                        <td>{veterinarian.phonenumber}</td>
+                                        <td>
+                                            {/* Utilisation du composant EditVeterinarian */}
+                                            <EditVeterinarian veterinarian={veterinarian} ping={ping} setping={setping} />
+                                        </td>
+                                        <td>
+                                            <button className='btn_delete' style={{ background: 'none', border: 'none', cursor: 'pointer' }} onClick={() => { dispatch(deleteveterinarian(veterinarian._id)); setping(!ping); }}>
+                                                <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-trash" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="#000000" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" />
+                                                    <line x1="4" y1="7" x2="20" y2="7" />
+                                                    <line x1="10" y1="11" x2="10" y2="17" />
+                                                    <line x1="14" y1="11" x2="14" y2="17" />
+                                                    <path d="M5 7l1 12a2 2 0 002 2h8a2 2 0 002 -2l1 -12" />
+                                                    <path d="M9 7v-3a1 1 0 011 -1h4a1 1 0 011 1v3" />
+                                                </svg>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </Table>
+                    </div>
+                </div>
+            ) : (
+                <div><center><img src="https://drudesk.com/sites/default/files/2018-02/404-error-page-not-found.jpg" alt="" width={'80%'} height={'auto'} style={{ width: "80%", height: "auto" }} /></center></div>
+            )}
+        </>
+    );
 }
 
-export default VetrinarianListadmin
+export default VetrinarianListadmin;

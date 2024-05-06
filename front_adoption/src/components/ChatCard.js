@@ -1,8 +1,11 @@
 import React from 'react';
 import './CSS/Cards.css';
+import { Link} from 'react-router-dom';
 
 
 const ChatCard = ({cat}) => {
+  
+
   return (
     <div>
     <>
@@ -42,13 +45,13 @@ const ChatCard = ({cat}) => {
          <p style={{fontStyle:'italic',fontFamily:'cursive',fontSize:'50px',fontWeight:'bold'}}> 
           <h4>{cat?.breed}</h4>
           <h4>{cat?.sexe}</h4>
-          <h4>{cat?.age}</h4>
+          <h4><i className="fas fa-map-marker-alt" /> {cat?.location}</h4>
           </p>
 
-          <a href="#" className="button">
-            Find out more
-            <span className="material-symbols-outlined"> more </span>
+          <Link style={{width:'100%', marginBottom:'-50px', fontWeight:'bold'}} to={`/catdetails/${cat?._id}`} > <a  className="button" >
+           Find out more   
           </a>
+          </Link> 
           </div>
         </div>
       </div>

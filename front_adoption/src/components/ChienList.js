@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useSelector } from 'react-redux'
 
-function ChienList({ping,setping}) {
+function ChienList() {
   const dogs= useSelector((state)=>state.dog?.doglist);
   const [text, settext] = useState("")
   return (
@@ -20,7 +20,7 @@ function ChienList({ping,setping}) {
             <Button className='btn' variant="outline-success" style={{backgroundColor:'#ff5bbd' , border:'none', color:'white'}} >Search</Button>
           </Form></center>
         <div className='card_list'>
-        {dogs?.filter((el)=>el?.name.toLowerCase().includes(text.toLowerCase())).map((el)=> <ChienCard dog={el} />)}  
+        {dogs?.filter((el)=>el?.location.toLowerCase().includes(text.toLowerCase())).map((el)=> <ChienCard dog={el} />)}  
      </div>
     </div>
   )

@@ -1,5 +1,6 @@
 import React from 'react';
 import './CSS/Cards.css';
+import { Link } from 'react-router-dom';
 
 const ChienCard = ({dog}) => {
   return (
@@ -39,12 +40,12 @@ const ChienCard = ({dog}) => {
           <p style={{fontStyle:'italic',fontFamily:'cursive',fontSize:'50px',fontWeight:'bold'}}> 
           <h4>{dog?.breed}</h4>
           <h4>{dog?.sexe}</h4>
-          <h4>{dog?.age}</h4>
+          <h4><i className="fas fa-map-marker-alt" /> {dog?.location}</h4>
           </p>
-          <a style={{fontWeight:'bold',color:'white'}} href="#" className="button">
-            Find out more
-            <span className="material-symbols-outlined"> more </span>
+          <Link style={{width:'100%', marginBottom:'-50px', fontWeight:'bold'}}  to={`/dogdetails/${dog?._id}`} > <a  className="button" >
+           Find out more   
           </a>
+          </Link> 
         </div>
       </div>
     

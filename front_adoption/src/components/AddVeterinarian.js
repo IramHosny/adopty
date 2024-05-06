@@ -20,7 +20,7 @@ const dispatch= useDispatch();
   return (
     <div>
         <>
-    <Button className='btn_add'  variant="primary" onClick={handleShow}>
+    <Button style={{ background: '#ff5bbd', border: 'none', cursor: 'pointer' }} className='btn_add'  variant="primary" onClick={handleShow}>
       Add a veterinarian
     </Button>
 
@@ -62,7 +62,7 @@ const dispatch= useDispatch();
         <Button variant="secondary" onClick={handleClose}>
           Close
         </Button>
-        <Button variant="primary" onClick={() => {dispatch(addveterinarian(veterinarian)); 
+        <Button style={{ background: '#ff5bbd', border: 'none', cursor: 'pointer' }} variant="primary" onClick={() => {dispatch(addveterinarian(veterinarian)); 
        
              handleClose();
              window.location.reload();}}>
