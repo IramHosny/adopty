@@ -5,6 +5,9 @@ import dogSlice from './dogSlice'
 import veterinarianSlice from './veterinarianSlice'
 import commentSlice from './commentSlice'
 import questionSlice from './questionSlice'
+import usersSlice from './usersSlice'
+import adoptCatSlice from './adoptCatSlice'
+import adoptDogSlice from './adoptDogSlice'
 
 
 
@@ -17,5 +20,9 @@ export const store = configureStore({
  veterinarian :veterinarianSlice,
  question: questionSlice,
  comment: commentSlice,
+ users : usersSlice,
+ adoptCat: adoptCatSlice,
+ adoptDog: adoptDogSlice,
+
   },
 })

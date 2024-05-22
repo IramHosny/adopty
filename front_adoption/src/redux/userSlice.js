@@ -1,5 +1,9 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios' ; 
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2'
+
+
 
 //register
 export const userRegister = createAsyncThunk("user/register", async(user) => {
@@ -40,8 +44,18 @@ export const userEdit = createAsyncThunk("user/update", async({id, editeduser}) 
     } catch (error) {
         console.log(error);
     }
-})
+});
 
+
+//delete user
+export const removeuser = createAsyncThunk("user/delete", async(id) => {
+    try {
+        let result = axios.delete(`http://localhost:5000/user/${id}`);
+        return result ; 
+    } catch (error) {
+        console.log(error);
+    }
+})
 const initialState = {
     user: null, 
     status:null,
@@ -81,8 +95,9 @@ export const userSlice = createSlice({
     localStorage.setItem ("token",action.payload.data.token);
 },
 [userLogin.rejected] : (state) => {
-    state.status = "rejected" 
-},
+    state.status = "rejected" ;
+    Swal.fire("Vérifier vos données");      
+    },
 //current
 [userCurrent.pending] : (state) => {
     state.status = "pending" ;
@@ -92,6 +107,17 @@ export const userSlice = createSlice({
     state.user = action.payload.data.user;
 },
 [userCurrent.rejected] : (state) => {
+    state.status = "rejected" 
+},
+
+//delete
+[removeuser.pending] : (state) => {
+    state.status = "pending" 
+},
+[removeuser.fulfilled] : (state) => {
+    state.status = "fullfilled";
+},
+[removeuser.rejected] : (state) => {
     state.status = "rejected" 
 },
   },

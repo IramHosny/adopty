@@ -6,15 +6,11 @@ const userRouter = express.Router();
 const {registerRules,loginRules,validation} = require("../middleware/validator");
 const isAuth = require('../middleware/passport');
 
-// userRouter.get("/",(req,res)=>{
-//     res.send("hello world");
-// })
-
 //register new user "post"
 userRouter.post("/register", registerRules(), validation, async(req, res)=>{
-    const {name, lastname,adress, phonenumber,email, password, role} = req.body;
+    const {name,lastname,adress, phonenumber,email, password,role} = req.body;
     try {
-       const newuser =  new User({name, lastname ,adress, phonenumber, email, password, role});
+       const newuser =  new User({name,lastname ,adress, phonenumber, email, password, role});
 
        //hash password
        const salt = 10 ; 
@@ -104,6 +100,29 @@ userRouter.put("/:_id", async (req, res) => {
       console.log(error);
     }
   });
+
+//get allusers
+userRouter.get("/allusers", async (req, res) => {
+  try {
+    let result = await User.find();
+    res.send({ users: result, msg: "all users " });
+  } catch (error) {
+    res.send({ msg: "fail" });
+    console.log(error);
+  }
+});
+
+//delete user 
+userRouter.delete("/:_id", async (req, res) => {
+  try {
+    let result = await User.findByIdAndDelete({ _id: req.params._id });
+    res.send({ msg: "user deleted " });
+  } catch (error) {
+    res.send({ msg: "fail" });
+    console.log(error);
+  }
+});
+
 
 
 

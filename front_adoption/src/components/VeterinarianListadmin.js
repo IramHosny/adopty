@@ -4,12 +4,28 @@ import AddVeterinarian from './AddVeterinarian';
 import EditVeterinarian from './EditVeterinarian';
 import Table from 'react-bootstrap/Table';
 import { deleteveterinarian } from '../redux/veterinarianSlice';
+import Swal from 'sweetalert2';
 
 function VetrinarianListadmin({ ping, setping }) {
     const user = useSelector(state => state.user?.user);
     const isAuth = localStorage.getItem('token');
     const veterinarians = useSelector(state => state.veterinarian?.veterinarianlist);
     const dispatch = useDispatch();
+    const alert = (a) => Swal.fire({
+        title: "Sure to delete this veterinarian ?",
+        showDenyButton: false,
+        showCancelButton: true,
+        confirmButtonText: "Delete",
+        denyButtonText: `cancel`
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          dispatch(deleteveterinarian(a));
+          Swal.fire("Veterinarian deleted");
+          setTimeout(function(){ window. location. reload(); }, 2000);
+  
+        }
+      });
 
     return (
         <>
@@ -32,21 +48,21 @@ function VetrinarianListadmin({ ping, setping }) {
                                 </tr>
                             </thead>
                             <tbody>
-                                {veterinarians?.map(veterinarian => (
-                                    <tr key={veterinarian._id}>
-                                        <td>{veterinarian.fullname}</td>
-                                        <td>{veterinarian.description}</td>
+                                {veterinarians?.map(el => (
+                                    <tr key={el._id}>
+                                        <td>{el.fullname}</td>
+                                        <td>{el.description}</td>
                                         <td>
-                                            <img src={veterinarian.image} style={{ maxWidth: '50px', minWidth: '50px', maxHeight: '50px', minHeight: '50px' }} alt='Veterinarian' className='img_table' />
+                                            <img src={el.image} style={{ maxWidth: '50px', minWidth: '50px', maxHeight: '50px', minHeight: '50px' }} alt='Veterinarian' className='img_table' />
                                         </td>
-                                        <td>{veterinarian.adress}</td>
-                                        <td>{veterinarian.phonenumber}</td>
+                                        <td>{el.adress}</td>
+                                        <td>{el.phonenumber}</td>
                                         <td>
                                             {/* Utilisation du composant EditVeterinarian */}
-                                            <EditVeterinarian veterinarian={veterinarian} ping={ping} setping={setping} />
+                                            <EditVeterinarian veterinarian={el} ping={ping} setping={setping} />
                                         </td>
                                         <td>
-                                            <button className='btn_delete' style={{ background: 'none', border: 'none', cursor: 'pointer' }} onClick={() => { dispatch(deleteveterinarian(veterinarian._id)); setping(!ping); }}>
+                                            <button className='btn_delete' style={{ background: 'none', border: 'none', cursor: 'pointer' }} onClick={() => { alert(el?._id); }}>
                                                 <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-trash" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="#000000" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                                     <path stroke="none" d="M0 0h24v24H0z" />
                                                     <line x1="4" y1="7" x2="20" y2="7" />

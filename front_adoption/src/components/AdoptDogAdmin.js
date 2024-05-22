@@ -1,18 +1,17 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { deletecat } from '../redux/catSlice';
-import AddCat from './AddCat';
-import EditCat from './EditCat';
+import { deleteadoptDog } from '../redux/adoptDogSlice';
+import EditadoptDog from './EditadoptDog';
 import Table from 'react-bootstrap/Table';
 import Swal from 'sweetalert2';
 
-function CatListadmin({ ping, setping }) {
+function AdoptDogAdmin({ ping, setping }) {
     const user = useSelector(state => state.user?.user);
     const isAuth = localStorage.getItem('token');
-    const cats = useSelector(state => state.cat?.catlist);
+    const adoptDog = useSelector(state => state.adoptDog?.adoptDoglist);
     const dispatch = useDispatch();
     const alert = (a) => Swal.fire({
-        title: "Sure to delete this cat ?",
+        title: "Sure to delete this adoption request ?",
         showDenyButton: false,
         showCancelButton: true,
         confirmButtonText: "Delete",
@@ -20,50 +19,51 @@ function CatListadmin({ ping, setping }) {
       }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
-          dispatch(deletecat(a));
-          Swal.fire("Cat deleted");
+          dispatch(deleteadoptDog(a));
+          Swal.fire("Adoption request deleted");
           setTimeout(function(){ window. location. reload(); }, 2000);
   
         }
       });
     return (
         <>
+        <header className="bg-white shadow">
+    <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+      <h2 className="text-3xl font-bold tracking-tight text-gray-900"> Adoption Requests for dogs </h2>
+    </div>
+  </header>
             {(isAuth && user?.role === "admin") ? (
-                <div className='cat-list-container' style={{ marginTop: '5%' }}>
-                    <div className='add-cat-container'>
-                        <AddCat ping={ping} setping={setping} />
-                    </div>
+                <div className='adopt_request_cat-list-container' style={{ marginTop: '5%' }}>
                     <div className="table-container">
                         <Table striped className='cat-table'>
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Breed</th>
-                                    <th>Image</th>
-                                    <th>Description</th>
-                                    <th>Location</th>
-                                    <th>Gender</th>
-                                    <th>Age</th>
+                                    <th>User_name</th>
+                                    <th>User_email</th>
+                                    <th>cat_adopted</th>
+                                    <th>Question1 </th>
+                                    <th>Question2</th>
+                                    <th>Question3</th>
+                                    <th>planned adoption date</th>
                                     <th>Status</th>
-                                    <th>Edit</th>
+                                    <th> </th>
                                     <th>Delete</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {cats?.map(el => (
+                                {adoptDog?.map(el => (
                                     <tr key={el._id}>
-                                        <td>{el.name}</td>
-                                        <td>{el.breed}</td>
-                                        <td><img style={{ maxWidth: '50px', minWidth: '50px', maxHeight: '50px', minHeight: '50px' }} src={el.image} alt='Cat' className='img_table' />
-                                        </td>
-                                        <td>{el.description}</td>
-                                        <td>{el.location}</td>
-                                        <td>{el.gender}</td>
-                                        <td>{el.age}</td>
+                                        <td>{el.user_name}</td>
+                                        <td>{el.user_email}</td>
+                                        <td>{el.cat_adopted}</td>
+                                        <td>{el.user_information1}</td>
+                                        <td>{el.user_information2}</td>
+                                        <td>{el.user_information3}</td>
+                                        <td>{el.date}</td>
                                         <td>{el.status}</td>
                                         <td>
                                             {/* Utilisation du composant EditCat */}
-                                            <EditCat cat={el} ping={ping} setping={setping} />
+                                            <EditadoptDog adoptDog={el} ping={ping} setping={setping} />
                                         </td>
                                         <td>
                                            
@@ -92,4 +92,4 @@ function CatListadmin({ ping, setping }) {
     );
 }
 
-export default CatListadmin;
+export default AdoptDogAdmin;

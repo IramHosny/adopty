@@ -27,26 +27,30 @@ import { getquestion } from './redux/questionSlice';
 import { getcomment } from './redux/commentSlice';
 import Detailscat from './components/Detailscat';
 import Detailsdog from './components/Detailsdog';
+import UserListadmin from './components/UserListadmin';
+import { getusers } from './redux/usersSlice';
+import AdoptCatAdmin from './components/AdoptCatAdmin';
+import AdoptDogAdmin from './components/AdoptDogAdmin';
+import { getadoptCat } from './redux/adoptCatSlice';
+import { getadoptDog } from './redux/adoptDogSlice';
+
 
 
 
 function App() {
   const dispatch= useDispatch();
-  
-  const isAuth = localStorage.getItem("token");
   const [ping, setping] = useState(false);
   useEffect(() => {
     dispatch(userCurrent());
+    dispatch(getusers());
     dispatch(getcat());
     dispatch(getdog());
     dispatch(getveterinarian());   
     dispatch(getquestion());   
-    dispatch(getcomment());   
+    dispatch(getcomment()); 
+    dispatch(getadoptCat());  
+    dispatch(getadoptDog());
   }, [ping])
-
- 
-const [text, settext] = useState("");
-
   return (
     <div className="App">
    <Navbarr/>
@@ -55,8 +59,7 @@ const [text, settext] = useState("");
         <Route path="/about" element={ <About/> } />
         <Route path="/cats" element={ <ChatList   ping = {ping} setping = {setping}/> } />
         <Route path="/dogs" element={ <ChienList  ping = {ping} setping = {setping}/> } />
-        <Route path="/forum" element={ <Question_CommentList/> } />
-        <Route path="/veterinarian" element={ <VeteList  ping = {ping} setping = {setping}/> } />
+       
         <Route path="/contact" element={ <Contact/> } />
         <Route path="/catdetails/:_id" element={ <Detailscat /> }/>
         <Route path="/dogdetails/:_id" element={ <Detailsdog /> }/>
@@ -65,10 +68,14 @@ const [text, settext] = useState("");
         <Route element={<PrivateRoute/>}>
         <Route path="/profile" element={<Profile ping = {ping} setping = {setping}/>}/>
         <Route path="/admin" element={<Dashboard/>} ping = {ping} setping = {setping}/>
+        <Route path="/admin/user" element={<UserListadmin/>}/>
+        <Route path="/admin/adoptRequestCat" element={<AdoptCatAdmin ping = {ping} setping = {setping}/>}/>
+        <Route path="/admin/adoptRequestDog" element={<AdoptDogAdmin ping = {ping} setping = {setping}/>}/>
         <Route path="/admin/cat" element={<CatListadmin/>} ping = {ping} setping = {setping} />
         <Route path="/admin/dog" element={<DogListadmin/>} ping = {ping} setping = {setping}/>
         <Route path='/admin/veterinarian' element={<VeterinarianListadmin/>} ping = {ping} setping = {setping}/>
-        
+        <Route path="/forum" element={ <Question_CommentList/> } />
+        <Route path="/veterinarian" element={ <VeteList  ping = {ping} setping = {setping}/> } />
         </Route>
         </Routes>
         <Footer/>

@@ -5,6 +5,7 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import { useDispatch } from 'react-redux';
 import { editveterinarian } from '../redux/veterinarianSlice';
+import Swal from 'sweetalert2';
 
 
 function EditVeterinarian({veterinarian}) {
@@ -19,6 +20,22 @@ const [show, setShow] = useState(false);
     phonenumber:veterinarian?.phonenumber,
   })
 const dispatch= useDispatch();
+const Update = (a)=> Swal.fire({
+  title: "Do you want to save the changes?",
+  showDenyButton: true,
+  showCancelButton: false,
+  confirmButtonText: "Save",
+  denyButtonText: `Don't save`
+}).then((result) => {
+  /* Read more about isConfirmed, isDenied below */
+  if (result.isConfirmed) {
+      dispatch(editveterinarian(a));
+    Swal.fire("Saved!", "", "success");
+    window.location.reload();
+  } else if (result.isDenied) {
+    Swal.fire("Changes are not saved", "", "info");
+  }
+});
   return (
     <>
     <button style={{ background: 'none', border: 'none', cursor: 'pointer' }} onClick={handleShow}>
@@ -63,10 +80,9 @@ const dispatch= useDispatch();
         <Button variant="secondary" onClick={handleClose}>
           Close
         </Button>
-        <Button variant="primary" style={{ background: '#ff5bbd', border: 'none', cursor: 'pointer' }} onClick={() => {dispatch(editveterinarian({id:veterinarian?._id,edited})); 
+        <Button variant="primary" style={{ background: '#ff5bbd', border: 'none', cursor: 'pointer' }} onClick={() => Update({id:veterinarian?._id,edited}) 
         
-             handleClose();
-             window.location.reload();}}>
+            }>
           Edit
         </Button>
 

@@ -5,6 +5,7 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import { useDispatch } from 'react-redux';
 import { editcomment } from '../redux/commentSlice';
+import Swal from 'sweetalert2';
 
 
 function EditComment({comment}) {
@@ -15,6 +16,22 @@ const [show, setShow] = useState(false);
     contenu :comment?.contenu ,
   })
 const dispatch= useDispatch();
+const Update = (a)=> Swal.fire({
+  title: "Do you want to save the changes?",
+  showDenyButton: true,
+  showCancelButton: false,
+  confirmButtonText: "Save",
+  denyButtonText: `Don't save`
+}).then((result) => {
+  /* Read more about isConfirmed, isDenied below */
+  if (result.isConfirmed) {
+      dispatch(editcomment(a));
+    Swal.fire("Saved!", "", "success");
+    window.location.reload();
+  } else if (result.isDenied) {
+    Swal.fire("Changes are not saved", "", "info");
+  }
+});
   return (
     <>
     <Button className='btn_edit' style={{ background: 'none', border: 'none', cursor: 'pointer' }} variant="primary" onClick={handleShow}>
@@ -43,10 +60,8 @@ const dispatch= useDispatch();
         <Button variant="secondary" onClick={handleClose}>
           Close
         </Button>
-        <Button variant="primary" style={{ background: '#ff5bbd', border: 'none', cursor: 'pointer' }} onClick={() => {dispatch(editcomment({id:comment?._id,edited})); 
-        
-             handleClose();
-             window.location.reload();}}>
+        <Button variant="primary" style={{ background: '#ff5bbd', border: 'none', cursor: 'pointer' }} onClick={() => Update({id:comment?._id,edited})
+         }>
           Edit
         </Button>
 

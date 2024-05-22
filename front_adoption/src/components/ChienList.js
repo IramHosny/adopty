@@ -3,12 +3,14 @@ import ChienCard from './ChienCard'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useSelector } from 'react-redux'
+import ShowLocalStorageDog from './ShowLocalStorageDog';
 
 function ChienList() {
   const dogs= useSelector((state)=>state.dog?.doglist);
   const [text, settext] = useState("")
   return (
     <div>
+      <ShowLocalStorageDog/>
         <center> <Form className="find"  style={{display:'flex',marginTop:'5%'}}>
             <Form.Control
               type="search"
@@ -20,7 +22,7 @@ function ChienList() {
             <Button className='btn' variant="outline-success" style={{backgroundColor:'#ff5bbd' , border:'none', color:'white'}} >Search</Button>
           </Form></center>
         <div className='card_list'>
-        {dogs?.filter((el)=>el?.location.toLowerCase().includes(text.toLowerCase())).map((el)=> <ChienCard dog={el} />)}  
+        {dogs?.filter((el)=>el?.name.toLowerCase().includes(text.toLowerCase())).map((el)=> <ChienCard dog={el} />)}  
      </div>
     </div>
   )

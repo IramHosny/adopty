@@ -5,6 +5,7 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import { useDispatch } from 'react-redux';
 import { editdog } from '../redux/dogSlice';
+import Swal from 'sweetalert2';
 
 
 function EditDog({ping, setping, dog}) {
@@ -15,14 +16,31 @@ const [show, setShow] = useState(false);
     name :dog?.name ,
     breed:dog?.breed,
     image:dog?.image,
-    description:dog?.desciption ,
-    Location :dog?.Location,
+    description:dog?.description ,
+    location :dog?.location,
     gender:dog?.gender,
     age:dog?.age,
     images:dog?.images,
     status:dog?.status,
-  })
+  }) 
+  console.log(edited)
 const dispatch= useDispatch();
+const Update = (a)=> Swal.fire({
+  title: "Do you want to save the changes?",
+  showDenyButton: true,
+  showCancelButton: false,
+  confirmButtonText: "Save",
+  denyButtonText: `Don't save`
+}).then((result) => {
+  /* Read more about isConfirmed, isDenied below */
+  if (result.isConfirmed) {
+      dispatch(editdog(a));
+    Swal.fire("Saved!", "", "success");
+    window.location.reload();
+  } else if (result.isDenied) {
+    Swal.fire("Changes are not saved", "", "info");
+  }
+});
   return (
     <>
         <button style={{ background: 'none', border: 'none', cursor: 'pointer' }} onClick={handleShow}>
@@ -54,11 +72,11 @@ const dispatch= useDispatch();
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label> Dog description</Form.Label>
-        <Form.Control type="text" placeholder={dog?.description} onChange={(e)=>setedited({...edited, descpription:e.target.value})}/>
+        <Form.Control type="text" placeholder={dog?.description} onChange={(e)=>setedited({...edited, description:e.target.value})}/>
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label> Dog location</Form.Label>
-        <Form.Control type="text" placeholder={dog?.Location} onChange={(e)=>setedited({...edited, Location:e.target.value})}/>
+        <Form.Control type="text" placeholder={dog?.location} onChange={(e)=>setedited({...edited, location:e.target.value})}/>
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Dog gender </Form.Label>
@@ -79,10 +97,7 @@ const dispatch= useDispatch();
         <Button variant="secondary" onClick={handleClose}>
           Close
         </Button>
-        <Button variant="primary"style={{ background: '#ff5bbd', border: 'none', cursor: 'pointer' }} onClick={() => {dispatch(editdog({id:dog?._id,edited})); 
-     
-             handleClose();
-             window.location.reload();}}>
+        <Button variant="primary"style={{ background: '#ff5bbd', border: 'none', cursor: 'pointer' }} onClick={() => Update({id:dog?._id,edited}) }>
           Edit
         </Button>
 

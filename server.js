@@ -15,7 +15,9 @@ app.use("/dog", require("./routes/dog"));
 app.use("/veterinarian", require("./routes/veterinarian"));
 app.use("/question", require("./routes/question"));
 app.use("/comment", require("./routes/comment"));
-
+app.use("/adoptCat", require("./routes/adopt_cat"));
+app.use("/adoptDog", require("./routes/adopt_dog"));
+1
 //server
 const PORT = process.env.PORT ;
 app.listen( PORT , 

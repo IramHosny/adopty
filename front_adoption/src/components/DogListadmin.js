@@ -11,7 +11,21 @@ function DogListadmin({ ping, setping }) {
     const isAuth = localStorage.getItem('token');
     const dogs = useSelector(state => state.dog?.doglist);
     const dispatch = useDispatch();
-    
+    const alert = (a) => Swal.fire({
+        title: "Sure to delete this dog ?",
+        showDenyButton: false,
+        showCancelButton: true,
+        confirmButtonText: "Delete",
+        denyButtonText: `cancel`
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          dispatch(deletedog(a));
+          Swal.fire("Dog deleted");
+          setTimeout(function(){ window. location. reload(); }, 2000);
+  
+        }
+      });
 
     return (
         <>
@@ -53,8 +67,7 @@ function DogListadmin({ ping, setping }) {
                                             <EditDog dog={el} ping={ping} setping={setping} />
                                         </td>
                                         <td>
-                                            <button style={{ background: 'none', border: 'none', cursor: 'pointer' }} onClick={() => { dispatch(deletedog(el._id));
-             window.location.reload(); }}>
+                                            <button style={{ background: 'none', border: 'none', cursor: 'pointer' }} onClick={() => { alert(el?._id); }}>
                                                 <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-trash" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="#000000" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                                     <path stroke="none" d="M0 0h24v24H0z" />
                                                     <line x1="4" y1="7" x2="20" y2="7" />

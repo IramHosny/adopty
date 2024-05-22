@@ -7,11 +7,11 @@ import './CSS/home_3.css';
 function Home() {
   return (
     <div className='home' style={{backgroundImage:`url("/mission.png")`,backgroundSize:"cover",
-    backgroundRepeat: "no-repeat"}} >
+    backgroundRepeat: "no-repeat", height:'2500px'}} >
     <video autoPlay muted loop width={'100%'} height={'auto'}>
     <source src="./couv.mp4" type="video/mp4"/>
     </video>
-     <Fade><div className='home_2'> 
+     <Fade><div className='home_2' > 
     <div className='cards_dogs_cats_vete' style={{display:'flex',justifyContent:'space-around',flexWrap:'nowrap', marginTop:'5%'}}>
 <div className="card" style={{borderRadius:'20px', height:'150px',width:'300px',backgroundColor:'white'}}>
 <Link  style={{textDecoration:'none'}} to="/dogs">  <img img alt="dog" src="/dog.png" style={{maxWidth:'250px',minWidth:'250px',maxHeight:'250px',minHeight:'250px',marginTop:'-50px',marginLeft:'15px'}}/> </Link>
@@ -63,7 +63,7 @@ function Home() {
   </div>
 </div>
 </Fade>
-    <div classname='home_4' style={{marginTop:'10%'}}>
+    <div classname='home_4' style={{marginTop:'10%', height:'600px'}}>
     <h1 style={{ marginTop:'70px', textAlign:'center' ,fontStyle:'italic',fontFamily:'cursive',fontWeight:'bold'}}> Our missions <h4 style={{color:'#ff5bbd',fontWeight:'bold'}}> for them !</h4> </h1>
   <Fade> <div className='cards_mission' style={{display:'flex',justifyContent:'space-around',flexWrap:'nowrap',marginTop:'2%'}}>
     <Card style={{ width: '18rem' }}>

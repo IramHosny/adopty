@@ -2,7 +2,7 @@ import React from 'react'
 import './CSS/Footer.css'
 function Footer() {
   return (
-    <div className='footer' style={{marginTop:'0',backgroundColor:'rgb(248 249 250)'}}>
+    <div className='footer' style={{marginTop:'2%',backgroundColor:'#f5f5dc'}}>
        <img src='./logoadopty.png'  alt="" style={{width:'300px',height:'250px'}}/> 
   <link
     rel="stylesheet"

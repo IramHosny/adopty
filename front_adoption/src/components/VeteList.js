@@ -9,7 +9,7 @@ function VeteList({ping,setping}) {
   const veterinarians= useSelector((state)=>state.veterinarian?.veterinarianlist);
   const [text, settext] = useState("")
   return (
-    <div >
+    <div>
     <center> <Form className="find" style={{display:'flex',marginTop:'5%'}}>
        <Form.Control
          type="search"
